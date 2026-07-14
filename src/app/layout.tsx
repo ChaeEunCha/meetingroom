@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "meetingroom - 회의실 예약 시스템",
+  title: "MeetingRoom - 회의실 예약 시스템",
   description: "회의실 예약 현황을 한눈에 보고 빈 시간을 클릭해 바로 예약하는 웹사이트",
 };
 

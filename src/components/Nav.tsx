@@ -14,7 +14,7 @@ export default function Nav() {
   return (
     <nav className="border-b border-gray-200 bg-white">
       <div className="mx-auto flex max-w-6xl items-center gap-6 px-4 py-3">
-        <span className="text-sm font-bold tracking-tight text-gray-900">meetingroom</span>
+        <span className="text-sm font-bold tracking-tight text-gray-900">MeetingRoom</span>
         {LINKS.map((link) => (
           <Link
             key={link.href}
