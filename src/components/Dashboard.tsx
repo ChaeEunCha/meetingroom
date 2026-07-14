@@ -94,10 +94,11 @@ export default function Dashboard() {
           <h1 className="text-2xl font-bold text-gray-900">회의실 예약 현황</h1>
           <p className="mt-1 text-sm text-gray-500">빈 시간을 클릭하면 바로 예약할 수 있습니다.</p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={() => setDate((d) => addDays(d, -1))}
-            className="rounded-md border border-gray-300 px-3 py-1.5 text-sm hover:bg-gray-50"
+            className="shrink-0 rounded-md border border-gray-300 px-3 py-2 text-sm hover:bg-gray-50"
+            aria-label="전날"
           >
             ◀
           </button>
@@ -105,17 +106,18 @@ export default function Dashboard() {
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="rounded-md border border-gray-300 px-3 py-1.5 text-sm"
+            className="min-w-0 flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm sm:flex-none"
           />
           <button
             onClick={() => setDate((d) => addDays(d, 1))}
-            className="rounded-md border border-gray-300 px-3 py-1.5 text-sm hover:bg-gray-50"
+            className="shrink-0 rounded-md border border-gray-300 px-3 py-2 text-sm hover:bg-gray-50"
+            aria-label="다음날"
           >
             ▶
           </button>
           <button
             onClick={() => setDate(todayString())}
-            className="rounded-md bg-gray-100 px-3 py-1.5 text-sm font-medium hover:bg-gray-200"
+            className="shrink-0 rounded-md bg-gray-100 px-3 py-2 text-sm font-medium hover:bg-gray-200"
           >
             오늘
           </button>
@@ -124,16 +126,18 @@ export default function Dashboard() {
 
       <p className="mt-4 text-sm font-medium text-gray-700">{formatDateLabel(date)}</p>
 
-      <div className="mt-3 flex items-center gap-4 text-xs text-gray-500">
+      <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-500">
         <span className="flex items-center gap-1">
-          <span className="inline-block h-3 w-3 rounded bg-blue-500" /> 예약됨 (클릭 시 상세/취소)
+          <span className="inline-block h-3 w-3 shrink-0 rounded bg-blue-500" /> 예약됨 (클릭 시 상세/취소)
         </span>
         <span className="flex items-center gap-1">
-          <span className="inline-block h-3 w-3 rounded border border-gray-300 bg-white" /> 빈 시간 (클릭 시 예약)
+          <span className="inline-block h-3 w-3 shrink-0 rounded border border-gray-300 bg-white" /> 빈 시간 (클릭 시 예약)
         </span>
       </div>
 
-      <div className="mt-4 overflow-x-auto rounded-lg border border-gray-200">
+      <p className="mt-2 text-xs text-gray-400 sm:hidden">← 옆으로 밀어서 전체 시간대를 확인하세요</p>
+
+      <div className="mt-2 overflow-x-auto rounded-lg border border-gray-200 [-webkit-overflow-scrolling:touch] sm:mt-4">
         <div style={{ minWidth: LABEL_COL_WIDTH + SLOT_COL_WIDTH * SLOTS.length }}>
           {/* Header row */}
           <div

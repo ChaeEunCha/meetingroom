@@ -77,7 +77,7 @@ export default function ReservationList() {
             type="date"
             value={dateFilter}
             onChange={(e) => setDateFilter(e.target.value)}
-            className="mt-1 rounded-md border border-gray-300 px-3 py-1.5 text-sm"
+            className="mt-1 rounded-md border border-gray-300 px-3 py-2 text-sm"
           />
         </div>
         <div>
@@ -85,7 +85,7 @@ export default function ReservationList() {
           <select
             value={roomFilter}
             onChange={(e) => setRoomFilter(e.target.value)}
-            className="mt-1 rounded-md border border-gray-300 px-3 py-1.5 text-sm"
+            className="mt-1 rounded-md border border-gray-300 px-3 py-2 text-sm"
           >
             <option value="all">전체</option>
             {rooms.map((r) => (
@@ -100,7 +100,7 @@ export default function ReservationList() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value as ReservationStatus | "all")}
-            className="mt-1 rounded-md border border-gray-300 px-3 py-1.5 text-sm"
+            className="mt-1 rounded-md border border-gray-300 px-3 py-2 text-sm"
           >
             <option value="all">전체</option>
             <option value="confirmed">확정</option>
@@ -114,7 +114,7 @@ export default function ReservationList() {
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
             placeholder="검색어 입력"
-            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-1.5 text-sm"
+            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
           />
         </div>
         <button
@@ -124,20 +124,22 @@ export default function ReservationList() {
             setStatusFilter("all");
             setKeyword("");
           }}
-          className="rounded-md border border-gray-300 px-3 py-1.5 text-sm text-gray-600 hover:bg-gray-50"
+          className="rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-600 hover:bg-gray-50"
         >
           필터 초기화
         </button>
         <button
           onClick={() => setDateFilter(todayString())}
-          className="rounded-md bg-gray-100 px-3 py-1.5 text-sm font-medium hover:bg-gray-200"
+          className="rounded-md bg-gray-100 px-3 py-2 text-sm font-medium hover:bg-gray-200"
         >
           오늘만
         </button>
       </div>
 
-      <div className="mt-4 overflow-x-auto rounded-lg border border-gray-200">
-        <table className="min-w-full divide-y divide-gray-200 text-sm">
+      <p className="mt-4 text-xs text-gray-400 sm:hidden">← 옆으로 밀어서 전체 항목을 확인하세요</p>
+
+      <div className="mt-2 overflow-x-auto rounded-lg border border-gray-200 [-webkit-overflow-scrolling:touch] sm:mt-4">
+        <table className="min-w-full divide-y divide-gray-200 whitespace-nowrap text-sm">
           <thead className="bg-gray-50">
             <tr>
               <th className="px-3 py-2 text-left font-medium text-gray-500">예약번호</th>

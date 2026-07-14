@@ -62,8 +62,8 @@ export default function BookingModal({ room, date, startMinutes, onClose, onCrea
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-      <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/40 p-4">
+      <div className="max-h-[calc(100vh-2rem)] w-full max-w-md overflow-y-auto rounded-lg bg-white p-6 shadow-xl">
         <h2 className="text-lg font-semibold text-gray-900">회의실 예약</h2>
         <p className="mt-1 text-sm text-gray-500">
           {room.name} · {formatDateLabel(date)}
